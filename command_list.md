@@ -6,11 +6,11 @@
 
 $ sudo apt install pandoc
 
-###convert \*.md to \*.html stdout
+###convert .md to .html stdout
 
 $ pandoc filename.md 
 
-###output html format from \*.md
+###output html format from .md
 
 $ pandoc filename.md > filename.html
 
@@ -26,3 +26,4 @@ $ lynx filename.html
 ##View html preview from md format file
 
 $ pandoc filename.md | lynx -stdin
+
