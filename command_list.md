@@ -1,29 +1,29 @@
-#Command Lists
+# Command Lists
 
 
-##Convert .md to .html
-###install package
+## Convert .md to .html
+### install package
 
-$ sudo apt install pandoc
+	$ sudo apt install pandoc
 
-###convert .md to .html stdout
+### convert .md to .html stdout
 
-$ pandoc filename.md 
+	$ pandoc filename.md 
 
-###output html format from .md
+### output html format from .md
 
-$ pandoc filename.md > filename.html
+	$ pandoc filename.md > filename.html
 
-##View html file preview on terminal
-###install pavkage
+## View html file preview on terminal
+### install pavkage
 
-$ sudo apt install lynx
+	$ sudo apt install lynx
 
-###view html preview
+### view html preview
 
-$ lynx filename.html
+	$ lynx filename.html
 
-##View html preview from md format file
+## View html preview from md format file
 
-$ pandoc filename.md | lynx -stdin
+	$ pandoc filename.md | lynx -stdin
 
