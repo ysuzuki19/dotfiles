@@ -1,7 +1,7 @@
 #Command Lists
 
 
-##Convert \*.md to \*.html
+##Convert .md to .html
 ###install package
 $ sudo apt install pandoc
 ###convert \*.md to \*.html stdout
