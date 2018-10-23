@@ -1,0 +1,15 @@
+2018/10/15-11:35:44.014 14989 Reusing MANIFEST /home/alien/.config/google-chrome/Default/Session Storage/MANIFEST-000001
+2018/10/15-11:35:44.014 14989 Recovering log #15
+2018/10/15-11:35:44.014 14989 Reusing old log /home/alien/.config/google-chrome/Default/Session Storage/000015.log 
+2018/10/15-14:48:05.601 16858 Level-0 table #19: started
+2018/10/15-14:48:05.611 16858 Level-0 table #19: 16708 bytes OK
+2018/10/15-14:48:05.619 16858 Delete type=0 #15
+2018/10/15-14:48:05.619 16858 Compacting 4@0 + 1@1 files
+2018/10/15-14:48:05.631 16858 Generated table #20@0: 290 keys, 20622 bytes
+2018/10/15-14:48:05.631 16858 Compacted 4@0 + 1@1 files => 20622 bytes
+2018/10/15-14:48:05.638 16858 compacted to: files[ 0 1 1 0 0 0 0 ]
+2018/10/15-14:48:05.638 16858 Delete type=2 #7
+2018/10/15-14:48:05.638 16858 Delete type=2 #13
+2018/10/15-14:48:05.639 16858 Delete type=2 #16
+2018/10/15-14:48:05.639 16858 Delete type=2 #19
+2018/10/15-14:48:05.639 16858 Delete type=2 #10
