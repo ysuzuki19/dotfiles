@@ -1,9 +1,3 @@
-set encoding=utf-8
-scriptencoding utf-8
-
-
-" filetype plugin on
-
 " タブ入力を複数の空白入力に置き換える
 set expandtab
 " 画面上でタブ文字が占める幅
@@ -107,21 +101,4 @@ color desert
 set cursorline
 " カレント行ハイライトを下線の代わりに文字強調にする
 hi CursorLine term=bold cterm=bold guibg=Grey40
-
-
-" Add spaces after comment delimiters by default
-"let  g:NERDSpaceDelims=1
-" Use compact syntax for prettified multi-line comments
-"let g:NERDCompactSexyComs=1
-" Align line-wise comment delimiters flush left instead of following code
-" indentation
-"let g:NERDDefaultAlign='left'
-" Set a language to use its alternate delimiters by default
-"let g:NERDCustomDelimiters={ 'c': { 'left': '/**'. 'right': '*/' }}
-" Allow commenting and inverting empty lines (useful when commenting a region)
-"let g:NERDCommentEmptyLines = 1
-" Enable trimming of trailing whitespace when uncommenting
-"let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not
-"let g:NERDToggleCheckAllLines = 1
 
