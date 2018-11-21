@@ -1,3 +1,7 @@
+set encoding=utf-8
+scriptencoding utf-8
+
+
 " タブ入力を複数の空白入力に置き換える
 set expandtab
 " 画面上でタブ文字が占める幅
@@ -5,13 +9,15 @@ set tabstop=2
 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set softtabstop=2
 " 改行時に前の行のインデントを継続する
-" set autoindent
+set autoindent
 " 改行時に前の行の構文をチェックし次の行のインデントを増減する
-" set smartindent
+set smartindent
 " smartindentで増減する幅
-" set shiftwidth = 2
+set shiftwidth=2
 " 行を表示
 set number
+" 終了時に余計な空白を削除する
+autocmd BufWritePre * :%s/\s\+$//ge
 
 if has("autocmd")
   " ファイルタイプの検索を有効にする
@@ -19,7 +25,7 @@ if has("autocmd")
   " ファイルタイプに合わせたインデントを利用
   filetype indent on
   " sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtab
-  autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c           setlocal sw=2 sts=2 ts=2 et
   autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
@@ -101,4 +107,3 @@ color desert
 set cursorline
 " カレント行ハイライトを下線の代わりに文字強調にする
 hi CursorLine term=bold cterm=bold guibg=Grey40
-
