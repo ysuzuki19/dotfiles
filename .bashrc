@@ -115,4 +115,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+alias emake='make 2>&1 >/dev/null | grep error'
+alias tmake="latexmk"
 alias x='exit'
+alias md='pandoc $1 | lynx -stdin'
+alias python='python3'
+alias pip='pip3'
+
+stty stop undef

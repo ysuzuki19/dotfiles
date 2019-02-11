@@ -1,7 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-
 " タブ入力を複数の空白入力に置き換える
 set expandtab
 " 画面上でタブ文字が占める幅
@@ -16,6 +15,11 @@ set smartindent
 set shiftwidth=2
 " 行を表示
 set number
+" 自動コメントアウト無効
+augroup auto_comment_off
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=r
+  autocmd BufEnter * setlocal formatoptions-=o
 " 終了時に余計な空白を削除する
 autocmd BufWritePre * :%s/\s\+$//ge
 
@@ -40,7 +44,6 @@ if has("autocmd")
   autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
 endif
 
-
 " インクリメンタルサーチ（1文字入力ごとに検索する）
 set incsearch
 " 検索パターンに大文字小文字を区別しない
@@ -57,12 +60,10 @@ nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
 
-
 " コマンドモードの補完
 set wildmenu
 " 保存するコマンド履歴の数
 set history=5000
-
 
 " マウスの有効化（カーソル移動・スクロール移動）
 if has('mouse')
@@ -75,7 +76,6 @@ if has('mouse')
     set ttymouse=xterm2
   endif
 endif
-
 
 " ペースト設定（クリップボードからコピーする際の自動インデント無効化）
 if &term =~ "xterm"
@@ -90,7 +90,6 @@ if &term =~ "xterm"
 
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin{""}
   endif
-
 
 " 自己流ショートカット
 " コメントアウト
