@@ -123,4 +123,6 @@ alias md='pandoc $1 | lynx -stdin'
 alias python='python3'
 alias pip='pip3'
 
+gsettings set org.gnome.desktop.input-source xkb-options "['ctrl:nocaps']"
+
 stty stop undef
