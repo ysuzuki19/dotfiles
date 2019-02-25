@@ -21,7 +21,9 @@ augroup auto_comment_off
   autocmd BufEnter * setlocal formatoptions-=r
   autocmd BufEnter * setlocal formatoptions-=o
 " 終了時に余計な空白を削除する
-autocmd BufWritePre * :%s/\s\+$//ge
+"autocmd BufWritePre * :%s/\s\+$//ge
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :terminal python %
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-e> :make run
 
 if has("autocmd")
   " ファイルタイプの検索を有効にする
@@ -93,9 +95,13 @@ if &term =~ "xterm"
 
 " 自己流ショートカット
 " コメントアウト
-nnoremap <C-i> 0i//<Esc>
+autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>i#<Esc>
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
+"nnoremap <C-i> <Home>i#<Esc>
 " アンコメントアウト
-nnoremap <C-s> 0xx
+"nnoremap <C-s> <Home>x
+autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>x<Esc>
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>xx<Esc>
 " 空白行を追加するがノーマルモードを維持
 nnoremap <S-o> o<Esc>
 
@@ -106,3 +112,6 @@ color desert
 set cursorline
 " カレント行ハイライトを下線の代わりに文字強調にする
 hi CursorLine term=bold cterm=bold guibg=Grey40
+
+nnoremap x "_x
+nnoremap s "_s
