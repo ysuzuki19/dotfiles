@@ -126,6 +126,7 @@ alias md='pandoc $1 | lynx -stdin'
 #gsettings set org.gnome.desktop.input-source xkb-options "['ctrl:nocaps']"
 
 stty stop undef
+stty start undef
 
 alias mk="make"
 alias mr="make run"

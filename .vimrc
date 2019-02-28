@@ -100,9 +100,9 @@ autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>i#<Esc>
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
 "nnoremap <C-i> <Home>i#<Esc>
 " アンコメントアウト
-"nnoremap <C-s> <Home>x
-autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>x<Esc>
-autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>xx<Esc>
+nnoremap <C-s> <Home>xx
+autocmd BufNewFile,BufRead *.py nnoremap <C-s> <Home>x<Esc>
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-s> <Home>xx<Esc>
 " 空白行を追加するがノーマルモードを維持
 nnoremap <S-o> o<Esc>
 
