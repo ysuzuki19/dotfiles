@@ -1,6 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+syntax on
 " タブ入力を複数の空白入力に置き換える
 set expandtab
 " 画面上でタブ文字が占める幅
@@ -23,7 +24,7 @@ augroup auto_comment_off
 " 終了時に余計な空白を削除する
 "autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufNewFile,BufRead *.py nnoremap <C-e> :terminal python %
-autocmd BufNewFile,BufRead *.cpp nnoremap <C-e> :make run
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-e> :make
 
 if has("autocmd")
   " ファイルタイプの検索を有効にする

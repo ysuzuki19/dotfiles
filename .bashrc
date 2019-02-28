@@ -120,10 +120,10 @@ alias emake='make 2>&1 >/dev/null | grep error'
 alias tmake="latexmk"
 alias x='exit'
 alias md='pandoc $1 | lynx -stdin'
-"alias python='python3'
-"alias pip='pip3'
+#alias python='python3'
+#alias pip='pip3'
 
-gsettings set org.gnome.desktop.input-source xkb-options "['ctrl:nocaps']"
+#gsettings set org.gnome.desktop.input-source xkb-options "['ctrl:nocaps']"
 
 stty stop undef
 
@@ -131,3 +131,6 @@ alias mk="make"
 alias mr="make run"
 alias mc="make clean"
 alias me="make; ./proj"
+
+#export PS1='\e[1;32m\t \u \e[1;31m\W \e[1;32m$ \e[0m'
+export PS1='\e[1;32m\u \e[1;34m\w \e[1;32m$ \e[0m'
