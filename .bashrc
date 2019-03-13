@@ -133,5 +133,7 @@ alias mr="make run"
 alias mc="make clean"
 alias me="make; ./proj"
 
-#export PS1='\e[1;32m\t \u \e[1;31m\W \e[1;32m$ \e[0m'
-export PS1='\e[1;32m\u \e[1;34m\w \e[1;32m$ \e[0m'
+GREEN="\[\e[1;32m\]"
+PURPLE="\[\e[1;34m\]"
+COLOR_END="\[\e[0m\]"
+export PS1="${GREEN}\u ${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
