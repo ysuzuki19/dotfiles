@@ -23,8 +23,6 @@ augroup auto_comment_off
   autocmd BufEnter * setlocal formatoptions-=o
 " 終了時に余計な空白を削除する
 "autocmd BufWritePre * :%s/\s\+$//ge
-autocmd BufNewFile,BufRead *.py nnoremap <C-e> :terminal python %
-autocmd BufNewFile,BufRead *.cpp nnoremap <C-e> :make
 
 if has("autocmd")
   " ファイルタイプの検索を有効にする
@@ -95,16 +93,16 @@ if &term =~ "xterm"
   endif
 
 " 自己流ショートカット
-" コメントアウト
 autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>i#<Esc>
-autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
-"nnoremap <C-i> <Home>i#<Esc>
-" アンコメントアウト
-nnoremap <C-s> <Home>xx
 autocmd BufNewFile,BufRead *.py nnoremap <C-s> <Home>x<Esc>
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :terminal python %
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-s> <Home>xx<Esc>
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-b> :make
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-e> :make run
 " 空白行を追加するがノーマルモードを維持
 nnoremap <S-o> o<Esc>
+
 
 " カーソルの左右移動で行末から次の行への移動を可能にする
 set whichwrap=b,s,h,l,<,>,[,],~
@@ -116,3 +114,5 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 
 nnoremap x "_x
 nnoremap s "_s
+
+set clipboard=unnamed,autoselect
