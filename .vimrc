@@ -125,3 +125,8 @@ nnoremap <S-o> o<Esc>
 " ;を;<CR>に置換
 nnoremap <S-k> :s/;/;\r/g
 
+" Save fold settings.
+autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
+autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
+" Don't save options.
+set viewoptions-=options
