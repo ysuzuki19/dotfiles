@@ -52,6 +52,7 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 " Escキー2度押しでハイライトの切り替え
 
 " 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソル移動
+nnoremap j gj
 nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
