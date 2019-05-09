@@ -133,6 +133,10 @@ alias mr="make run"
 alias mc="make clean"
 alias me="make; ./proj"
 
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+alias tcopy="tmux save-buffer - | xsel --clipboard --input"
+
 GREEN="\[\e[1;32m\]"
 PURPLE="\[\e[1;34m\]"
 COLOR_END="\[\e[0m\]"
