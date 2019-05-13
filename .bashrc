@@ -117,6 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 alias emake='make 2>&1 >/dev/null | grep error'
+alias emk='make 2>&1 >/dev/null | grep error'
 alias tmake="latexmk"
 alias x='exit'
 alias md='pandoc $1 | lynx -stdin'
