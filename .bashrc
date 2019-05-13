@@ -124,8 +124,6 @@ alias md='pandoc $1 | lynx -stdin'
 #alias python='python3'
 #alias pip='pip3'
 
-#gsettings set org.gnome.desktop.input-source xkb-options "['ctrl:nocaps']"
-
 stty stop undef
 stty start undef
 
@@ -133,6 +131,7 @@ alias mk="make"
 alias mr="make run"
 alias mc="make clean"
 alias me="make; ./proj"
+alias tmx="tmux"
 
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
