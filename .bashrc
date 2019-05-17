@@ -121,6 +121,7 @@ alias emk='make 2>&1 >/dev/null | grep error'
 alias tmake="latexmk"
 alias x='exit'
 alias md='pandoc $1 | lynx -stdin'
+alias p='python3'
 #alias python='python3'
 #alias pip='pip3'
 
