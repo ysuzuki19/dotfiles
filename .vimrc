@@ -109,14 +109,14 @@ set clipboard=unnamed,autoselect " ヤンクとクリップボードを共有
 " Ctrl+iで１行コメントアウト
 autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>i#<Esc>
 " Ctrl+sで１行アンコメントアウト
-autocmd BufNewFile,BufRead *.py nnoremap <C-s> <Home>x<Esc>
+autocmd BufNewFile,BufRead *.py nnoremap <C-s> <Home>"_x<Esc>
 " Ctrl+eでスクリプト実行
 autocmd BufNewFile,BufRead *.py nnoremap <C-e> :terminal python %
 " C++について
 " Ctrl+iで１行コメントアウト
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
 " Ctrl+sで１行アンコメントアウト
-autocmd BufNewFile,BufRead *.cpp nnoremap <C-s> <Home>xx<Esc>
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-s> <Home>"_x"_x<Esc>
 " Ctrl+bでmakeコマンド実行
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-b> :make
 " Ctrl+bでmake runコマンド実行
