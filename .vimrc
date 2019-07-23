@@ -111,7 +111,7 @@ autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>i#<Esc>
 " Ctrl+sで１行アンコメントアウト
 autocmd BufNewFile,BufRead *.py nnoremap <C-s> <Home>"_x<Esc>
 " Ctrl+eでスクリプト実行
-autocmd BufNewFile,BufRead *.py nnoremap <C-e> :terminal python %
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :vertical terminal python %
 " C++について
 " Ctrl+iで１行コメントアウト
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
