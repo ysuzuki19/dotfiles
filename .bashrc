@@ -145,3 +145,4 @@ export PS1="${GREEN}\u ${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 export PS1="${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 
 alias track="~/Recruit/CodingTest/trackEnv/track"
+alias ff="firefox"
