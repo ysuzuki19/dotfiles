@@ -144,7 +144,12 @@ COLOR_END="\[\e[0m\]"
 export PS1="${GREEN}\u ${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 export PS1="${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 
+<<<<<<< HEAD
 alias ｌｓ="ls"
 alias stt="cd ~/Study/Myprog/roadT"
 alias bset="mkdir build; cd build; cmake ..; make;"
 alias cmk="cmake"
+=======
+alias track="~/Recruit/CodingTest/trackEnv/track"
+alias ff="firefox"
+>>>>>>> 97fa6d603341f6f588e135d01a69af93b10fa1f7
