@@ -143,3 +143,8 @@ PURPLE="\[\e[1;34m\]"
 COLOR_END="\[\e[0m\]"
 export PS1="${GREEN}\u ${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 export PS1="${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
+
+alias ｌｓ="ls"
+alias stt="cd ~/Study/Myprog/roadT"
+alias bset="mkdir build; cd build; cmake ..; make;"
+alias cmk="cmake"
