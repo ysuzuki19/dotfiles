@@ -107,7 +107,7 @@ set clipboard=unnamed,autoselect " ヤンクとクリップボードを共有
 " 自己流ショートカット
 autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>i#<Esc>
 autocmd BufNewFile,BufRead *.py nnoremap <C-s> <Home>"_x<Esc>
-autocmd BufNewFile,BufRead *.py nnoremap <C-e> :vertical terminal python %
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :vertical terminal python3 %
 
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-s> <Home>"_x"_x<Esc>
