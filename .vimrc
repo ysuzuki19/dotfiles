@@ -40,9 +40,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
@@ -178,7 +178,8 @@ nnoremap <S-o> o<Esc>
 nnoremap <S-k> :s/;/;\r/g
 
 " Save fold settings.
-autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
-autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
-" Don't save options.
-set viewoptions-=options
+augroup AutoSaveFolds
+  au!
+  au BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
+  au BufWinEnter ?* silent! loadview
+augroup end
