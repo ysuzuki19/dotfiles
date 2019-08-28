@@ -183,3 +183,4 @@ augroup AutoSaveFolds
   au BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
   au BufWinEnter ?* silent! loadview
 augroup end
+set completeopt+=menuone
