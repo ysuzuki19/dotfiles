@@ -31,6 +31,6 @@ alias cmk="cmake"
 alias track="~/Recruit/CodingTest/trackEnv/track"
 alias ff="firefox"
 
-alias vim="nvim"
-alias vi="nvim"
+#alias vim="nvim"
+#alias vi="nvim"
 
