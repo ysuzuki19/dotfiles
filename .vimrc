@@ -134,7 +134,7 @@ if &term =~ "xterm"
   endif
 
 
-set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行への移動を可能にする
+"set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行への移動を可能にする
 color desert " カーソルラインをハイライト
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40 " カレント行ハイライトを下線の代わりに文字強調にする
