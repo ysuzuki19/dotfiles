@@ -174,8 +174,6 @@ autocmd BufNewFile,BufRead *.js nnoremap <C-s> <Home>xx<Esc>
 
 " 空白行を追加するがノーマルモードを維持，上に空行挿入が使えなくなることに注意
 nnoremap <S-o> o<Esc>
-" ;を;<CR>に置換
-nnoremap <S-k> :s/;/;\r/g
 
 " Save fold settings.
 augroup AutoSaveFolds

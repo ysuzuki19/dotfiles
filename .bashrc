@@ -102,3 +102,4 @@ COLOR_END="\[\e[0m\]"
 export PS1="${GREEN}\u ${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 export PS1="${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 
+export PATH="$PATH:~/.local/bin/"
