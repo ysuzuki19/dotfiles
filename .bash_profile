@@ -5,3 +5,4 @@ if [ -f ~/.bashrc ]; then
 . ~/.bashrc
 fi
 #export PATH="/usr/local/opt/llvm/bin:$PATH"
+export BASH_SILENCE_DEPRECATION_WARNING=1
