@@ -152,25 +152,25 @@ set clipboard=unnamed " ヤンクとクリップボードを共有
 
 " 自己流ショートカット
 autocmd BufNewFile,BufRead *.py nnoremap <C-i> <Home>i#<Esc>
-autocmd BufNewFile,BufRead *.py nnoremap <C-s> <Home>"_x<Esc>
+autocmd BufNewFile,BufRead *.py nnoremap <C-f> <Home>"_x<Esc>
 autocmd BufNewFile,BufRead *.py nnoremap <C-e> :vertical terminal python3 %
 
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-i> <Home>i//<Esc>
-autocmd BufNewFile,BufRead *.cpp nnoremap <C-s> <Home>"_x"_x<Esc>
+autocmd BufNewFile,BufRead *.cpp nnoremap <C-f> <Home>"_x"_x<Esc>
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-b> :make
 autocmd BufNewFile,BufRead *.cpp nnoremap <C-e> :make run
 
 autocmd BufNewFile,BufRead *.sh nnoremap <C-i> <Home>i#<Esc>
-autocmd BufNewFile,BufRead *.sh nnoremap <C-s> <Home>x<Esc>
+autocmd BufNewFile,BufRead *.sh nnoremap <C-f> <Home>x<Esc>
 
 autocmd BufNewFile,BufRead *.html nnoremap <C-i> <End>a--><Esc><Home>i<\!--<Esc>
-autocmd BufNewFile,BufRead *.html nnoremap <C-s> <End>xxx<Esc><Home>xxxx<Esc>
+autocmd BufNewFile,BufRead *.html nnoremap <C-f> <End>xxx<Esc><Home>xxxx<Esc>
 
 autocmd BufNewFile,BufRead *.css nnoremap <C-i> <End>a*/<Esc><Home>i/*<Esc>
-autocmd BufNewFile,BufRead *.css nnoremap <C-s> <End>xx<Esc><Home>xx<Esc>
+autocmd BufNewFile,BufRead *.css nnoremap <C-f> <End>xx<Esc><Home>xx<Esc>
 
 autocmd BufNewFile,BufRead *.js nnoremap <C-i> <Home>i//<Esc>
-autocmd BufNewFile,BufRead *.js nnoremap <C-s> <Home>xx<Esc>
+autocmd BufNewFile,BufRead *.js nnoremap <C-f> <Home>xx<Esc>
 
 " 空白行を追加するがノーマルモードを維持，上に空行挿入が使えなくなることに注意
 nnoremap <S-o> o<Esc>
