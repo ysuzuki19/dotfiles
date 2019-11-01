@@ -182,3 +182,33 @@ augroup AutoSaveFolds
   au BufWinEnter ?* silent! loadview
 augroup end
 set completeopt+=menuone
+
+"noremap h hzz
+"noremap j jzz
+"noremap k kzz
+"noremap l lzz
+"noremap gj gjzz
+"noremap gk gkzz
+"noremap + +zz
+"noremap - -zz
+"noremap e ezz
+"noremap b bzz
+"noremap w wzz
+"noremap ge gezz
+"noremap E Ezz
+"noremap B Bzz
+"noremap W Wzz
+"noremap gE gEzz
+"noremap n nzz
+"noremap N Nzz
+"noremap G Gzz
+"noremap g; g;zz
+"noremap g, g,zz
+"noremap <C-u> <C-u>zz
+"noremap <C-d> <C-d>zz
+"noremap u uzz
+"noremap <C-r> <C-r>zz
+"noremap % %zz
+"noremap d dzz
+"noremap o ozz
+"noremap O Ozz
