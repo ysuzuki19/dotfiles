@@ -1,6 +1,13 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+"" mapping ctrl+c instead of Esc
+inoremap <Esc> <Esc>l
+nnoremap <C-c> <Esc>
+inoremap <C-c> <Esc>l
+vnoremap <C-c> <Esc>
+cnoremap <C-c> <Esc>
+
 set showmatch
 set showcmd
 set showmode
@@ -14,7 +21,9 @@ syntax on
 set autoindent
 set smartindent
 set shiftwidth=2
-set number
+"set number
+"set nonumber
+set nonu
 augroup auto_comment_off
   autocmd!
   autocmd BufEnter * setlocal formatoptions-=r
