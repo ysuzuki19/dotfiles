@@ -1,14 +1,14 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+syntax on
+
 "" mapping ctrl+c instead of Esc
 inoremap <Esc> <Esc>l
 nnoremap <C-c> <Esc>
 inoremap <C-c> <Esc>l
 vnoremap <C-c> <Esc>
 cnoremap <C-c> <Esc>
-
-syntax on
 
 set showmatch
 set showcmd
@@ -24,55 +24,55 @@ set hlsearch
 set backspace=indent,eol,start
 set clipboard=unnamed
 set autoindent
-set smartindent
+"set smartindent
 "set number
 set nonumber
-
-augroup auto_comment_off
-	autocmd!
-	autocmd BufEnter * setlocal formatoptions-=r
-	autocmd BufEnter * setlocal formatoptions-=o
-	autocmd BufWritePre * :%s/\s\+$//ge
-augroup end
+set list
+set listchars=tab:>-,trail:~
+hi SpecialKey ctermbg=NONE ctermfg=59 guibg=NONE guifg=NONE
 
 if has("autocmd")
 	filetype plugin indent on
 	" sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtab
 	autocmd FileType c           setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType c nnoremap <buffer> <C-i> <Home>i//<Esc>
-	autocmd FileType c nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
-	autocmd FileType c nnoremap <buffer> <C-b> :make
-	autocmd FileType c nnoremap <buffer> <C-e> :make run
+	autocmd FileType c           nnoremap <buffer> <C-i> <Home>i//<Esc>
+	autocmd FileType c           nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
+	autocmd FileType c           nnoremap <buffer> <C-b> :make
+	autocmd FileType c           nnoremap <buffer> <C-e> :make run
+
+	autocmd FileType cpp         setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType cpp         nnoremap <buffer> <C-i> <Home>i//<Esc>
+	autocmd FileType cpp         nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
+	autocmd FileType cpp         nnoremap <buffer> <C-b> :make
+	autocmd FileType cpp         nnoremap <buffer> <C-e> :make run
 
 	autocmd FileType python      setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType python nnoremap <buffer> <C-i> <Home>i#<Esc>
-	autocmd FileType python nnoremap <buffer> <C-f> <Home>"_x<Esc>
-	"autocmd FileType python nnoremap <C-e> :vertical terminal python3 %
-	autocmd FileType python nnoremap <buffer> <C-e> :terminal python3 %
+	autocmd FileType python      nnoremap <buffer> <C-i> <Home>i#<Esc>
+	autocmd FileType python      nnoremap <buffer> <C-f> <Home>"_x<Esc>
+	autocmd FileType python      nnoremap <buffer> <C-e> :terminal python3 %
 
 	autocmd FileType html        setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType html nnoremap <buffer> <C-i> <End>a--><Esc><Home>i<\!--<Esc>
-	autocmd FileType html nnoremap <buffer> <C-f> <End>xxx<Esc><Home>xxxx<Esc>
+	autocmd FileType html        nnoremap <buffer> <C-i> <End>a--><Esc><Home>i<!--<Esc>
+	autocmd FileType html        nnoremap <buffer> <C-f> <End>xxx<Esc><Home>xxxx<Esc>
 
 	autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType js          setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType javasctipt  nnoremap <buffer> <C-i> <Home>i//<Esc>
+	autocmd FileType javasctipt  nnoremap <buffer> <C-f> <Home>xx<Esc>
 	autocmd FileType zsh         setlocal sw=2 sts=2 ts=2 noexpandtab
 
 	autocmd FileType scala       setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType json        setlocal sw=2 sts=2 ts=2 noexpandtab
 
 	autocmd FileType css         setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType css nnoremap <buffer> <C-i> <End>a*/<Esc><Home>i/*<Esc>
-	autocmd FileType css nnoremap <buffer> <C-f> <End>xx<Esc><Home>xx<Esc>
+	autocmd FileType css         nnoremap <buffer> <C-i> <End>a*/<Esc><Home>i/*<Esc>
+	autocmd FileType css         nnoremap <buffer> <C-f> <End>xx<Esc><Home>xx<Esc>
 
 	autocmd FileType scss        setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType sass        setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType javascript  setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType javasctipt nnoremap <buffer> <C-i> <Home>i//<Esc>
-	autocmd FileType javasctipt nnoremap <buffer> <C-f> <Home>xx<Esc>
 
-	autocmd BufNewFile,BufRead *.sh nnoremap <buffer> <C-i> <Home>i#<Esc>
-	autocmd BufNewFile,BufRead *.sh nnoremap <buffer> <C-f> <Home>x<Esc>
+	autocmd FileType sh          nnoremap <buffer> <C-i> <Home>i#<Esc>
+	autocmd FileType sh          nnoremap <buffer> <C-f> <Home>x<Esc>
 endif
 
 nnoremap j gj
@@ -86,6 +86,7 @@ set history=5000
 color desert " カーソルラインをハイライト
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40 " カレント行ハイライトを下線の代わりに文字強調にする
+hi SpecialKey ctermbg=NONE ctermfg=59 guibg=NONE guifg=NONE
 
 nnoremap x "_x
 vnoremap x "_x
@@ -94,7 +95,6 @@ vnoremap X "_X
 nnoremap s "_s
 vnoremap s "_s
 
-"nnoremap <CR> o<Esc>
 nnoremap <C-@> o<Esc>
 nnoremap # <Space><Space>:%s/<C-r>///g<Left><Left>
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
@@ -112,7 +112,6 @@ inoremap <C-b> <left>
 
 
 " use command like emacs
-" cnoremap <CR> <CR>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <C-b> <Left>
@@ -121,14 +120,11 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 
-" Save fold settings.
-augroup AutoSaveFolds
-	au!
-	au BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
-	au BufWinEnter ?* silent! loadview
-augroup end
-set completeopt+=menuone
+" save and load fold
+"autocmd BufWinLeave * mkview
+"autocmd BufWinEnter * silent! loadview
 
+set completeopt+=menu
 " カーソル行を常に中央にする設定
 " noremap h hzz
 " noremap j jzz
