@@ -24,11 +24,19 @@ set hlsearch
 set backspace=indent,eol,start
 set clipboard=unnamed
 set autoindent
-"set smartindent
-"set number
 set nonumber
 set list
 set listchars=tab:>-,trail:~
+set formatoptions-=cro
+set wildmenu
+set history=5000
+
+color desert " カーソルラインをハイライト
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40 " カレント行ハイライトを下線の代わりに文字強調にする
+hi SpecialKey ctermbg=NONE ctermfg=59 guibg=NONE guifg=NONE
+
+set completeopt+=menu
 hi SpecialKey ctermbg=NONE ctermfg=59 guibg=NONE guifg=NONE
 
 if has("autocmd")
@@ -45,6 +53,12 @@ if has("autocmd")
 	autocmd FileType cpp         nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
 	autocmd FileType cpp         nnoremap <buffer> <C-b> :make
 	autocmd FileType cpp         nnoremap <buffer> <C-e> :make run
+
+	autocmd FileType go          setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType go          nnoremap <buffer> <C-i> <Home>i//<Esc>
+	autocmd FileType go          nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
+	autocmd FileType go          nnoremap <buffer> <C-b> :make
+	autocmd FileType go          nnoremap <buffer> <C-e> :make run
 
 	autocmd FileType python      setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType python      nnoremap <buffer> <C-i> <Home>i#<Esc>
@@ -80,14 +94,6 @@ nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
 
-set wildmenu
-set history=5000
-
-color desert " カーソルラインをハイライト
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40 " カレント行ハイライトを下線の代わりに文字強調にする
-hi SpecialKey ctermbg=NONE ctermfg=59 guibg=NONE guifg=NONE
-
 nnoremap x "_x
 vnoremap x "_x
 nnoremap X "_X
@@ -121,10 +127,9 @@ cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 
 " save and load fold
-"autocmd BufWinLeave * mkview
-"autocmd BufWinEnter * silent! loadview
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent! loadview
 
-set completeopt+=menu
 " カーソル行を常に中央にする設定
 " noremap h hzz
 " noremap j jzz
@@ -155,3 +160,5 @@ set completeopt+=menu
 " noremap dd ddzz
 " noremap o o
 " noremap O o<Esc>zz
+
+nnoremap F V$%zf

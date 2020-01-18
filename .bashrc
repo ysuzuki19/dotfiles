@@ -103,3 +103,4 @@ export PS1="${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 
 export PATH="$PATH:~/.local/bin/"
 export LC_ALL=en_US.UTF-8
+export GOPATH=~/Github/TsuQro/tsuqrogo/app/

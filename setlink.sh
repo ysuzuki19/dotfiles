@@ -5,7 +5,6 @@ ln -sf ~/Github/dotfiles/.bash_aliases ~/.bash_aliases
 ln -sf ~/Github/dotfiles/.inputrc ~/.inputrc
 ln -sf ~/Github/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/Github/dotfiles/.tmux.conf ~/.tmux.conf
-shopt -s expand_aliases
 source .bash_profile
 source .bashrc
 source .inputrc
