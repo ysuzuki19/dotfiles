@@ -3,12 +3,13 @@ scriptencoding utf-8
 
 syntax on
 
-"" mapping ctrl+c instead of Esc
-inoremap <Esc> <Esc>l
-nnoremap <C-c> <Esc>
-inoremap <C-c> <Esc>l
-vnoremap <C-c> <Esc>
-cnoremap <C-c> <Esc>
+augroup C-c_InsteadOfEsc
+	inoremap <Esc> <Esc>l
+	nnoremap <C-c> <Esc>
+	inoremap <C-c> <Esc>l
+	vnoremap <C-c> <Esc>
+	cnoremap <C-c> <Esc>
+augroup END
 
 set showmatch
 set showcmd
@@ -30,10 +31,16 @@ set listchars=tab:>-,trail:~
 set formatoptions-=cro
 set wildmenu
 set history=5000
+set belloff=all
 
-color desert " カーソルラインをハイライト
+
+" 全角スペースの背景を白に変更
+autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
+autocmd VimEnter * match FullWidthSpace /　/
+" カラースキームの設定
+color desert
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40 " カレント行ハイライトを下線の代わりに文字強調にする
+hi CursorLine term=bold cterm=bold guibg=Grey40
 hi SpecialKey ctermbg=NONE ctermfg=59 guibg=NONE guifg=NONE
 
 set completeopt+=menu
@@ -43,26 +50,26 @@ if has("autocmd")
 	filetype plugin indent on
 	" sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtab
 	autocmd FileType c           setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType c           nnoremap <buffer> <C-i> <Home>i//<Esc>
-	autocmd FileType c           nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
+	autocmd FileType c           nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType c           nnoremap <buffer> <C-f> I<Del><Del><Esc>
 	autocmd FileType c           nnoremap <buffer> <C-b> :make
 	autocmd FileType c           nnoremap <buffer> <C-e> :make run
 
 	autocmd FileType cpp         setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType cpp         nnoremap <buffer> <C-i> <Home>i//<Esc>
-	autocmd FileType cpp         nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
+	autocmd FileType cpp         nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType cpp         nnoremap <buffer> <C-f> I<Del><Del><Esc>
 	autocmd FileType cpp         nnoremap <buffer> <C-b> :make
 	autocmd FileType cpp         nnoremap <buffer> <C-e> :make run
 
 	autocmd FileType go          setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType go          nnoremap <buffer> <C-i> <Home>i//<Esc>
-	autocmd FileType go          nnoremap <buffer> <C-f> <Home>"_x"_x<Esc>
+	autocmd FileType go          nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType go          nnoremap <buffer> <C-f> I<Del><Del><Esc>
 	autocmd FileType go          nnoremap <buffer> <C-b> :make
 	autocmd FileType go          nnoremap <buffer> <C-e> :make run
 
 	autocmd FileType python      setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType python      nnoremap <buffer> <C-i> <Home>i#<Esc>
-	autocmd FileType python      nnoremap <buffer> <C-f> <Home>"_x<Esc>
+	autocmd FileType python      nnoremap <buffer> <C-i> I#<Esc>
+	autocmd FileType python      nnoremap <buffer> <C-f> I<Del><Esc>
 	autocmd FileType python      nnoremap <buffer> <C-e> :terminal python3 %
 
 	autocmd FileType html        setlocal sw=2 sts=2 ts=2 noexpandtab
@@ -85,6 +92,7 @@ if has("autocmd")
 	autocmd FileType scss        setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType sass        setlocal sw=2 sts=2 ts=2 noexpandtab
 
+	autocmd FileType sh          setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType sh          nnoremap <buffer> <C-i> <Home>i#<Esc>
 	autocmd FileType sh          nnoremap <buffer> <C-f> <Home>x<Esc>
 endif
@@ -94,71 +102,80 @@ nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
 
-nnoremap x "_x
-vnoremap x "_x
-nnoremap X "_X
-vnoremap X "_X
-nnoremap s "_s
-vnoremap s "_s
+augroup xsWishoutYank
+	nnoremap x "_x
+	vnoremap x "_x
+	nnoremap X "_X
+	vnoremap X "_X
+	nnoremap s "_s
+	vnoremap s "_s
+augroup END
 
 nnoremap <C-@> o<Esc>
 nnoremap # <Space><Space>:%s/<C-r>///g<Left><Left>
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap F V$%zf
 
-" use insert mode like emacs
-inoremap <C-d> <Del>
-inoremap <C-h> <BS>
-inoremap <C-a> <home>
-inoremap <C-e> <End>
-"inoremap <C-p> <Up>
-"inoremap <C-n> <Down>
-inoremap <C-f> <right>
-inoremap <C-b> <left>
-
+augroup SetEmacsWithInsertMode
+	inoremap <C-d> <Del>
+	inoremap <C-h> <BS>
+	inoremap <C-a> <home>
+	inoremap <C-e> <End>
+	"inoremap <C-p> <Up>
+	"inoremap <C-n> <Down>
+	inoremap <C-f> <right>
+	inoremap <C-b> <left>
+augroup END
 
 " use command like emacs
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-d> <Del>
+augroup CommandEmacs
+	cnoremap <C-p> <Up>
+	cnoremap <C-n> <Down>
+	cnoremap <C-b> <Left>
+	cnoremap <C-f> <Right>
+	cnoremap <C-a> <Home>
+	cnoremap <C-e> <End>
+	cnoremap <C-d> <Del>
+augroup END
 
-" save and load fold
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent! loadview
+"augroup AutoSaveView
+"	autocmd!
+"	autocmd BufWinLeave . mkview
+"	autocmd BufWinEnter . silent! loadview
+"augroup END
 
-" カーソル行を常に中央にする設定
-" noremap h hzz
-" noremap j jzz
-" noremap k kzz
-" noremap l lzz
-" noremap gj gjzz
-" noremap gk gkzz
-" noremap + +zz
-" noremap - -zz
-" noremap e ezz
-" noremap b bzz
-" noremap w wzz
-" noremap ge gezz
-" noremap E Ezz
-" noremap B Bzz
-" noremap W Wzz
-" noremap gE gEzz
-" noremap n nzz
-" noremap N Nzz
-" noremap G Gzz
-" noremap g; g;zz
-" noremap g, g,zz
-" noremap <C-u> <C-u>zz
-" noremap <C-d> <C-d>zz
-" noremap u uzz
-" noremap <C-r> <C-r>zz
-" noremap % %zz
-" noremap dd ddzz
-" noremap o o
-" noremap O o<Esc>zz
-
-nnoremap F V$%zf
+function CenterCursor()
+	noremap h hzz
+	noremap j jzz
+	noremap k kzz
+	noremap l lzz
+	noremap p pzz
+	noremap gj gjzz
+	noremap gk gkzz
+	noremap + +zz
+	noremap - -zz
+	noremap e ezz
+	noremap b bzz
+	noremap w wzz
+	noremap ge gezz
+	noremap E Ezz
+	noremap B Bzz
+	noremap W Wzz
+	noremap gE gEzz
+	noremap n nzz
+	noremap N Nzz
+	noremap G Gzz
+	noremap g; g;zz
+	noremap g, g,zz
+	noremap <C-u> <C-u>zz
+	noremap <C-d> <C-d>zz
+	noremap u uzz
+	noremap <C-r> <C-r>zz
+	noremap % %zz
+	noremap dd ddzz
+	nnoremap <C-@> o<Esc>zz
+	vnoremap y yzz
+	vnoremap d dzz
+	vnoremap <S->> <S->>zz
+endfunction
