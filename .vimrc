@@ -77,17 +77,17 @@ if has("autocmd")
 	autocmd FileType html        nnoremap <buffer> <C-f> <End>xxx<Esc><Home>xxxx<Esc>
 
 	autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType js          setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType javasctipt  nnoremap <buffer> <C-i> <Home>i//<Esc>
-	autocmd FileType javasctipt  nnoremap <buffer> <C-f> <Home>xx<Esc>
+	autocmd FileType javascript  setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType javascript  nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType javascript  nnoremap <buffer> <C-f> I<Del><Del><Esc>
 	autocmd FileType zsh         setlocal sw=2 sts=2 ts=2 noexpandtab
 
 	autocmd FileType scala       setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType json        setlocal sw=2 sts=2 ts=2 noexpandtab
 
 	autocmd FileType css         setlocal sw=2 sts=2 ts=2 noexpandtab
-	autocmd FileType css         nnoremap <buffer> <C-i> <End>a*/<Esc><Home>i/*<Esc>
-	autocmd FileType css         nnoremap <buffer> <C-f> <End>xx<Esc><Home>xx<Esc>
+	autocmd FileType css         nnoremap <buffer> <C-i> A*/<Esc>I/*<Esc>
+	autocmd FileType css         nnoremap <buffer> <C-f> A<BS><BS><Esc>I<Del><Del><Esc>
 
 	autocmd FileType scss        setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType sass        setlocal sw=2 sts=2 ts=2 noexpandtab
