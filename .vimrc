@@ -77,9 +77,15 @@ if has("autocmd")
 	autocmd FileType html        nnoremap <buffer> <C-f> <End>xxx<Esc><Home>xxxx<Esc>
 
 	autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType jsx         setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType jsx         nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType jsx         nnoremap <buffer> <C-f> I<Del><Del><Esc>
 	autocmd FileType javascript  setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType javascript  nnoremap <buffer> <C-i> I//<Esc>
 	autocmd FileType javascript  nnoremap <buffer> <C-f> I<Del><Del><Esc>
+	autocmd FileType javascriptreact  setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType javascriptreact  nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType javascriptreact  nnoremap <buffer> <C-f> I<Del><Del><Esc>
 	autocmd FileType zsh         setlocal sw=2 sts=2 ts=2 noexpandtab
 
 	autocmd FileType scala       setlocal sw=2 sts=2 ts=2 noexpandtab
@@ -90,7 +96,11 @@ if has("autocmd")
 	autocmd FileType css         nnoremap <buffer> <C-f> A<BS><BS><Esc>I<Del><Del><Esc>
 
 	autocmd FileType scss        setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType scss        nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType scss        nnoremap <buffer> <C-f> I<Del><Del><Esc>
 	autocmd FileType sass        setlocal sw=2 sts=2 ts=2 noexpandtab
+	autocmd FileType sass        nnoremap <buffer> <C-i> I//<Esc>
+	autocmd FileType sass        nnoremap <buffer> <C-f> I<Del><Del><Esc>
 
 	autocmd FileType sh          setlocal sw=2 sts=2 ts=2 noexpandtab
 	autocmd FileType sh          nnoremap <buffer> <C-i> <Home>i#<Esc>

@@ -105,4 +105,4 @@ export PATH="$PATH:~/.local/bin/"
 export LC_ALL=en_US.UTF-8
 export GOPATH=${HOME}/Github/TsuQro/tsuqrogo/app/
 export NPM_PACKAGES="${HOME}/.npm-packages"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Applications/Postgres.app/Contents/Versions/latest/bin:~/.local/bin/:~/.local/bin/:${HOME}/Scripts/:${NPM_PACKAGES}/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Applications/Postgres.app/Contents/Versions/latest/bin:~/.local/bin/:~/.local/bin/:${HOME}/Scripts/:${NPM_PACKAGES}/bin:${HOME}/.npm/bin"
