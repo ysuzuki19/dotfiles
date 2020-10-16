@@ -36,3 +36,4 @@ alias pip="pip3"
 #alias vim="nvim"
 #alias vi="nvim"
 
+alias jupyter-notebook="jupyter-notebook --browser=google-chrome"
