@@ -32,6 +32,7 @@ set formatoptions-=cro
 set wildmenu
 set history=5000
 set belloff=all
+set so=5
 
 
 " 全角スペースの背景を白に変更
