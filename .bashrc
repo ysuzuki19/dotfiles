@@ -103,6 +103,10 @@ export PS1="${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 
 export PATH="$PATH:~/.local/bin/"
 export LC_ALL=en_US.UTF-8
-export GOPATH=${HOME}/Github/TsuQro/tsuqrogo/app/
+export GOPATH=${HOME}/Go/
+export PATH=$PATH:$GOPATH/bin
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Applications/Postgres.app/Contents/Versions/latest/bin:~/.local/bin/:~/.local/bin/:${HOME}/Scripts/:${NPM_PACKAGES}/bin:${HOME}/.npm/bin"
+
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
