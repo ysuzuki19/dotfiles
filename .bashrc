@@ -111,4 +111,25 @@ export PATH="${PATH}:${GOPATH}/bin"
 export PATH="${PATH}:${NPM_PACKAGES}/bin"
 export PATH="${PATH}:${HOME}/.npm/bin"
 export PATH="${PATH}:/usr/local/cuda/bin"
+export PATH="${PATH}:${HOME}/anaconda3/bin" # This is User Scripts
 export PATH="${PATH}:${HOME}/Scripts/" # This is User Scripts
+
+
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+shopt -u histappend
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/yuya/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/yuya/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/yuya/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/yuya/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
