@@ -23,7 +23,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set backspace=indent,eol,start
-set clipboard=unnamed
+set clipboard=unnamedplus  " クリップボード使用
 set autoindent
 set nonumber
 set list
