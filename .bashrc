@@ -101,10 +101,13 @@ PURPLE="\[\e[1;34m\]"
 COLOR_END="\[\e[0m\]"
 export PS1="${PURPLE}\w ${GREEN}\$ ${COLOR_END}"
 
+export TF_FORCE_GPU_ALLOW_GROWTH=true
+
 export LC_ALL=en_US.UTF-8
 export GOPATH="${HOME}/Go"
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/cuda/lib64"
+
 
 export PATH="${PATH}:/usr/local/go/bin"
 export PATH="${PATH}:${GOPATH}/bin"
