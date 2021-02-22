@@ -114,43 +114,48 @@ export PATH="${PATH}:${GOPATH}/bin"
 export PATH="${PATH}:${NPM_PACKAGES}/bin"
 export PATH="${PATH}:${HOME}/.npm/bin"
 export PATH="${PATH}:/usr/local/cuda/bin"
-export PATH="${PATH}:${HOME}/anaconda3/bin" # This is User Scripts
 export PATH="${PATH}:${HOME}/Scripts/" # This is User Scripts
 
 
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 shopt -u histappend
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/yuya/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/yuya/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/yuya/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/yuya/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+_automatically_activate_nested_venv() {
+  if [[ ${PWD} != *${HOME}* ]]; then
+    return
+  fi
 
-venv() {
-    if [ -e "venv" ]; then
-        # Check to see if already activated to avoid redundant activating
-        if [ "$VIRTUAL_ENV" != "$(pwd -P)/.venv" ]; then
-            _VENV_NAME=$(basename `pwd`)
-            echo Activating virtualenv \"$_VENV_NAME\"...
-            VIRTUAL_ENV_DISABLE_PROMPT=1
-            source .venv/bin/activate
-            _OLD_VIRTUAL_PS1="$PS1"
-            PS1="($_VENV_NAME)$PS1"
-            export PS1
-        fi
+  search_path=$PWD
+  while [ $HOME != ${search_path} ]
+  do
+    if [ -e "${search_path}/.venv" ]; then
+      env_dir=${search_path##*/}
+
+      if [ ${_VENV_NAME} ] && [ ${env_dir} == ${_VENV_NAME} ]; then
+        break;
+      fi
+
+      if [ "$VIRTUAL_ENV" != "${search_path}/.venv" ]; then
+        _VENV_NAME=$(basename ${search_path##*/})
+        echo Activating virtualenv \"$_VENV_NAME\"...
+        VIRTUAL_ENV_DISABLE_PROMPT=1
+        source ${search_path}/.venv/bin/activate
+        _OLD_VIRTUAL_PS1="$PS1"
+        PS1="($_VENV_NAME)$PS1"
+        export PS1
+      fi
+      break
     fi
-    echo 'auto act'
+    search_path=${search_path%/*}
+  done
+
+  if [ ${_VENV_NAME} ] && [ ${HOME} == ${search_path} ]; then
+    deactivate
+    _VENV_NAME=''
+  fi
+
 }
-#venv # uncomment out if you want use automatically-activate
+export PROMPT_COMMAND=_automatically_activate_nested_venv
+#_venv # uncomment out if you want use automatically-activate
 
 figlet -c Bash
