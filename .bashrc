@@ -120,26 +120,41 @@ export PATH="${PATH}:${HOME}/Scripts/" # This is User Scripts
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 shopt -u histappend
 
-_automatically_activate_nested_venv() {
+_auto_activate_nested_venv() {
   if [[ ${PWD} != *${HOME}* ]]; then
     return
   fi
 
+  env_key='.venv'
   search_path=$PWD
-  while [ $HOME != ${search_path} ]
+  while [ ${search_path} != ${HOME} ]
   do
-    if [ -e "${search_path}/.venv" ]; then
+    if [ -e "${search_path}/${env_key}" ]; then
       env_dir=${search_path##*/}
 
       if [ ${_VENV_NAME} ] && [ ${env_dir} == ${_VENV_NAME} ]; then
         break;
       fi
 
-      if [ "$VIRTUAL_ENV" != "${search_path}/.venv" ]; then
+      if [ "$VIRTUAL_ENV" != "${search_path}/${env_key}" ]; then
+        env_owner=$(stat -c '%U' ${search_path}/${env_key})
+        if [ $env_owner != $USER ]; then
+          echo '[VENV OWNER]: '$env_owner
+
+          # For security: question if `.env` is third party
+          read -p "Do you activate? [y/N]" -n 1 -r
+          if [[ ! $REPLY =~ ^[yN]$ ]]; then
+            return
+          fi
+
+        else
+          echo '[ENV OWNER]: '$env_owner
+        fi
+
         _VENV_NAME=$(basename ${search_path##*/})
         echo Activating virtualenv \"$_VENV_NAME\"...
         VIRTUAL_ENV_DISABLE_PROMPT=1
-        source ${search_path}/.venv/bin/activate
+        source ${search_path}/${env_key}/bin/activate
         _OLD_VIRTUAL_PS1="$PS1"
         PS1="($_VENV_NAME)$PS1"
         export PS1
@@ -153,9 +168,7 @@ _automatically_activate_nested_venv() {
     deactivate
     _VENV_NAME=''
   fi
-
 }
-export PROMPT_COMMAND=_automatically_activate_nested_venv
-#_venv # uncomment out if you want use automatically-activate
+export PROMPT_COMMAND=_auto_activate_nested_venv
 
-figlet -c Bash
+#figlet -c Bash
