@@ -62,6 +62,10 @@ if has("autocmd")
   autocmd FileType cpp         nnoremap <buffer> <C-b> :make
   autocmd FileType cpp         nnoremap <buffer> <C-e> :make run
 
+  autocmd FileType java        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java        nnoremap <buffer> <C-i> I//<Esc>
+  autocmd FileType java        nnoremap <buffer> <C-f> I<Del><Del><Esc>
+
   autocmd FileType go          setlocal sw=2 sts=2 ts=2 et
   autocmd FileType go          nnoremap <buffer> <C-i> I//<Esc>
   autocmd FileType go          nnoremap <buffer> <C-f> I<Del><Del><Esc>
