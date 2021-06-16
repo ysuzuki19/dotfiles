@@ -125,6 +125,10 @@ _auto_activate_nested_venv() {
     return
   fi
 
+  if [[ ${ENV_TYPE} != '' && ${ENV_TYPE} != 'pyenv' ]]; then
+    return
+  fi
+
   env_key='.venv'
   search_path=$PWD
   while [ ${search_path} != ${HOME} ]
@@ -151,12 +155,13 @@ _auto_activate_nested_venv() {
           echo '[ENV OWNER]: '$env_owner
         fi
 
+        ENV_TYPE='pyenv'
         _VENV_NAME=$(basename ${search_path##*/})
         echo Activating virtualenv \"$_VENV_NAME\"...
         VIRTUAL_ENV_DISABLE_PROMPT=1
         source ${search_path}/${env_key}/bin/activate
         _OLD_VIRTUAL_PS1="$PS1"
-        PS1="($_VENV_NAME)$PS1"
+        PS1="(pyenv $_VENV_NAME)$PS1"
         export PS1
       fi
       break
@@ -165,10 +170,55 @@ _auto_activate_nested_venv() {
   done
 
   if [ ${_VENV_NAME} ] && [ ${HOME} == ${search_path} ]; then
-    deactivate
     _VENV_NAME=''
+    ENV_TYPE=''
+    deactivate
   fi
 }
-export PROMPT_COMMAND=_auto_activate_nested_venv
+
+_auto_visualize_nested_node_modules() {
+  if [[ ${PWD} != *${HOME}* ]]; then
+    return
+  fi
+
+  if [[ ${ENV_TYPE} != '' && ${ENV_TYPE} != 'node' ]]; then
+    return
+  fi
+
+  env_key='node_modules'
+  search_path=$PWD
+  while [ ${search_path} != ${HOME} ]
+  do
+    if [ -e "${search_path}/${env_key}" ]; then
+      env_dir=${search_path##*/}
+
+      if [ ${_VENV_NAME} ] && [ ${env_dir} == ${_VENV_NAME} ]; then
+        break;
+      fi
+
+      if [ "$VIRTUAL_ENV" != "${search_path}/${env_key}" ]; then
+        env_owner=$(stat -c '%U' ${search_path}/${env_key})
+
+        ENV_TYPE='node'
+        _VENV_NAME=$(basename ${search_path##*/})
+        echo Now node directory \"$_VENV_NAME\"
+        VIRTUAL_ENV_DISABLE_PROMPT=1
+        _OLD_VIRTUAL_PS1="$PS1"
+        PS1="(node $_VENV_NAME)$PS1"
+        export PS1
+      fi
+      break
+    fi
+    search_path=${search_path%/*}
+  done
+
+  if [ ${_VENV_NAME} ] && [ ${HOME} == ${search_path} ]; then
+    ENV_TYPE=''
+    _VENV_NAME=''
+    PS1=$_OLD_VIRTUAL_PS1
+    export PS1
+  fi
+}
+export PROMPT_COMMAND='_auto_activate_nested_venv;_auto_visualize_nested_node_modules'
 
 #figlet -c Bash
